@@ -18,47 +18,47 @@ namespace TencentCloud\Bsca\V20210811\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 描述一个组件版本。
+ * 描述组件版本的详情，包含组件发布时间、Copyright列表、组件描述Tag。
  *
- * @method PURL getPURL() 获取该组件的PURL
+ * @method string getPublishTime() 获取版本发布时间
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setPURL(PURL $PURL) 设置该组件的PURL
+ * @method void setPublishTime(string $PublishTime) 设置版本发布时间
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getLicenseExpression() 获取该组件版本的许可证表达式
+ * @method array getCopyrightList() 获取当前版本的所有copyright
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setLicenseExpression(string $LicenseExpression) 设置该组件版本的许可证表达式
+ * @method void setCopyrightList(array $CopyrightList) 设置当前版本的所有copyright
 注意：此字段可能返回 null，表示取不到有效值。
- * @method ComponentVersionInfo getVersionInfo() 获取组件的版本信息
+ * @method array getTagList() 获取版本标签
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setVersionInfo(ComponentVersionInfo $VersionInfo) 设置组件的版本信息
+ * @method void setTagList(array $TagList) 设置版本标签
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class ComponentVersion extends AbstractModel
+class ComponentVersionInfo extends AbstractModel
 {
     /**
-     * @var PURL 该组件的PURL
+     * @var string 版本发布时间
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $PURL;
+    public $PublishTime;
 
     /**
-     * @var string 该组件版本的许可证表达式
+     * @var array 当前版本的所有copyright
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $LicenseExpression;
+    public $CopyrightList;
 
     /**
-     * @var ComponentVersionInfo 组件的版本信息
+     * @var array 版本标签
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $VersionInfo;
+    public $TagList;
 
     /**
-     * @param PURL $PURL 该组件的PURL
+     * @param string $PublishTime 版本发布时间
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $LicenseExpression 该组件版本的许可证表达式
+     * @param array $CopyrightList 当前版本的所有copyright
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param ComponentVersionInfo $VersionInfo 组件的版本信息
+     * @param array $TagList 版本标签
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -74,18 +74,16 @@ class ComponentVersion extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("PURL",$param) and $param["PURL"] !== null) {
-            $this->PURL = new PURL();
-            $this->PURL->deserialize($param["PURL"]);
+        if (array_key_exists("PublishTime",$param) and $param["PublishTime"] !== null) {
+            $this->PublishTime = $param["PublishTime"];
         }
 
-        if (array_key_exists("LicenseExpression",$param) and $param["LicenseExpression"] !== null) {
-            $this->LicenseExpression = $param["LicenseExpression"];
+        if (array_key_exists("CopyrightList",$param) and $param["CopyrightList"] !== null) {
+            $this->CopyrightList = $param["CopyrightList"];
         }
 
-        if (array_key_exists("VersionInfo",$param) and $param["VersionInfo"] !== null) {
-            $this->VersionInfo = new ComponentVersionInfo();
-            $this->VersionInfo->deserialize($param["VersionInfo"]);
+        if (array_key_exists("TagList",$param) and $param["TagList"] !== null) {
+            $this->TagList = $param["TagList"];
         }
     }
 }
